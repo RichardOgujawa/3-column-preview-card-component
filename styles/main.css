@@ -1,0 +1,196 @@
+/*IMPORTS
+------------------------------------------------*/
+/*--RESET--*/
+@import url("reset.css");
+
+
+/*SETUP
+------------------------------------------------*/
+/*--VARIABLES--*/
+:root {
+    /*Colour*/
+    --clr-neutral-100-transparent: 0, 0%, 100%, 0.65; /*Paragraph text*/
+    --clr-neutral-100: 0, 0%, 95%; /*Background, headings, buttons*/
+
+    --clr-orange-200: 43deg 100% 72%;
+    --clr-orange-400: 31deg 76% 51%;
+    --clr-orange-800: 31deg 70% 41%;
+
+    --clr-cyan-200: 184deg 64% 46%;
+    --clr-cyan-400: 184deg 100% 22%;
+    --clr-cyan-800: 183deg 99% 18%;
+
+    --clr-teal-200: 169deg 74% 42%;
+    --clr-teal-400: 178deg 100% 13%;
+    --clr-teal-800: 179deg 100% 9%;
+
+    /*Fonts*/
+        /*font size*/
+        font-size: 13px;
+
+        --fs-400: 1rem; 
+        --fs-600: 3rem;
+        --fs-900: 10rem; 
+
+        /*font family*/
+        --ff-accent:'Big Shoulders Display', cursive;
+        --ff-base: 'Lexend Deca', sans-serif;
+
+        /*font weight*/
+        --fw-regular: 400; 
+        --fw-bold: 700;
+
+    /*Transitions*/
+    --transition-fast: 0.3s ease; 
+    --transition-slow: 0.45s ease;
+}
+
+/*UTILITY CLASSES
+------------------------------------------------*/
+/*--LAYOUT--*/
+.flex {
+    display: flex; 
+    gap: var(--flex-gap);
+}
+
+.flex-wrap {
+    display: flex; 
+    gap: var(--flex-wrap-gap); 
+    flex-wrap: wrap; 
+}
+
+.grid {
+    display: grid; 
+    row-gap: var(--grid-row-gap);
+    column-gap: var(--grid-column-gap);
+}
+
+/*--BUTTON--*/
+.btn {
+    padding: 0.5rem 1.4rem; 
+    border: 3px solid transparent;
+    border-radius: 100vw; 
+    
+    background: hsl(var(--clr-neutral-100));
+
+    transition: var(--transition-fast);
+}
+
+.btn.orange {
+    color: hsl(var(--clr-orange-400));
+}
+
+.btn.cyan {
+    color: hsl(var(--clr-cyan-400));
+}
+
+.btn.teal {
+    color: hsl(var(--clr-teal-400));
+}
+
+.btn:is(:hover, :focus){
+    border: 3px solid hsl(var(--clr-neutral-100)); 
+
+    color: hsl(var(--clr-neutral-100));
+    background-color: transparent;
+    
+    cursor: pointer;
+}
+
+/*GLOBAL CSS
+------------------------------------------------*/
+h2 {
+    /* margin: 2rem 0 1.5rem; */
+    margin-block: 1.25rem;
+
+    font-size: var(--fs-600);
+    font-family: var(--ff-accent);
+    text-transform: uppercase;
+
+    color: hsl(var(--clr-neutral-100));
+}
+
+p {
+    width: 85%;
+
+    line-height: 1.5;
+}
+
+/*CUSTOM CSS
+------------------------------------------------*/
+/*--SWITCHES--*/
+
+
+/*----------------------------------------------*/
+body {
+    min-height: 100vh;
+
+    font-size: var(--fs-400);
+    font-family: var(--ff-base);
+
+    color: hsla(var(--clr-neutral-100-transparent));
+    background-color: hsl(var(--clr-neutral-100)); 
+}
+
+main {
+    height: 100%;
+    padding-block: 3rem;
+    margin-inline: 2rem;
+
+    display: grid; 
+    place-content: center;
+}
+
+/*--ARTICLE--*/
+article {
+    width: min(850px, 55vw);
+    border-radius: 5px; 
+
+    display: flex; 
+    flex-direction: column;
+    place-content: center;
+
+    overflow: hidden;
+}
+
+section {
+    --flex-gap: 3rem;
+
+    padding: 3rem;
+    
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card__sedans-section {
+    background-color: hsl(var(--clr-orange-400));
+}
+
+.card__suv-section {
+    background-color: hsl(var(--clr-cyan-400));
+}
+
+.card__luxury-section {
+    background-color: hsl(var(--clr-teal-400));
+}
+
+button {
+    margin-top: 4rem;
+    align-self: flex-start; 
+}
+
+@media screen and (min-width: 65rem){
+    :root {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 2rem;
+    }
+    
+    article {
+        flex-direction: row;
+    }  
+}
+
